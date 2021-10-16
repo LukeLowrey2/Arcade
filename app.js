@@ -47,8 +47,8 @@ class Game {
             console.log(savedElement);
         }
         console.log(newPlayersArray);
-        // document.getElementById('playerX').innerHTML = newPlayersArray[0]
-        // document.getElementById('player0').innerHTML = newPlayersArray[1]
+        document.getElementById('playerX').innerHTML = newPlayersArray[0]
+        document.getElementById('playerO').innerHTML = newPlayersArray[1]
 
         //Create an input field to add players names into an empty array
         //shuffle those names in the array
@@ -223,7 +223,9 @@ let newGame = new Game()
 
 // newGame.submission()
 
-newGame.playerInput()
+submitPlayersButton.addEventListener('click',function(event) {
+    newGame.playerInput()
+})
 
 gameBoard.addEventListener('click',function(event) {
     newGame.playerClick(event);
