@@ -47,8 +47,8 @@ class Game {
             console.log(savedElement);
         }
         console.log(newPlayersArray);
-        document.getElementById('playerX').innerHTML = newPlayersArray[0]
-        document.getElementById('playerO').innerHTML = newPlayersArray[1]
+        document.getElementById('playerX').innerHTML = playersArray[0];
+        document.getElementById('playerO').innerHTML = playersArray[1];
 
         //Create an input field to add players names into an empty array
         //shuffle those names in the array
