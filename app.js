@@ -47,15 +47,11 @@ class Game {
             console.log(savedElement);
         }
         console.log(newPlayersArray);
-        document.getElementById('playerX').innerHTML = 'X-' + playersArray[0];
-        document.getElementById('playerO').innerHTML = 'O-' + playersArray[1];
+        document.getElementById('playerX').innerHTML = 'X: ' + playersArray[0];
+        document.getElementById('playerO').innerHTML = 'O: ' + playersArray[1];
 
-        //Create an input field to add players names into an empty array
-        //shuffle those names in the array
-        //display players names as player 1 & 2
     }
     submission(idName, className) {
-        //Add function to click event to put value in and array of arrays set up like game board
 
         this.board[squareID[idName][0]][squareID[idName][1]] = className;
         // this.board[0][1] = ;
@@ -71,7 +67,6 @@ class Game {
     }
     playerClick(event) {
         let currentTarget = event.target;
-        // let variable initialize the player works like an on off switch
         if (currentTarget.className) {
             alert('Taken, try again!');
         }
@@ -90,7 +85,6 @@ class Game {
                 console.log(currentTarget.className)
                 this.playersTurn = 'player2';
             }
-            // this.submission(currentTarget.id, currentTarget.className)
             this.board[squareID[currentTarget.id][0]][squareID[currentTarget.id][1]] = currentTarget.className;
 
             console.log(this.board)
@@ -99,7 +93,6 @@ class Game {
 
     }
     checkRows() {
-        //If one of the rows is filled with x's or o's display 'X or O Wins'
         if (this.board[0][0] == 'o' && this.board[0][1] == 'o' && this.board[0][2] == 'o') {
             document.getElementById('resultsOfGame').innerHTML = "O Wins!";
             document.getElementById('gameBoard').className = 'noClick';
@@ -181,41 +174,52 @@ class Game {
         //look at every space in my board's array 
         //if there is an element array that is null then there's no draw
         //but if there is not an empty space the game is a draw
-        // if (this.board[0][0] == 'x' || 'o' &&
-        //     this.board[0][1] == 'x' || 'o' &&
-        //     this.board[0][2] == 'x' || 'o' &&
-        //     this.board[1][0] == 'x' || 'o' &&
-        //     this.board[1][1] == 'x' || 'o' &&
-        //     this.board[1][2] == 'x' || 'o' &&
-        //     this.board[2][0] == 'x' || 'o' &&
-        //     this.board[2][1] == 'x' || 'o' &&
-        //     this.board[2][2] == 'x' || 'o'){
-        //     alert('draw');
-        // }
+        if (this.board[0][0] == 'x' &&
+            this.board[0][0] == 'o' &&
+            this.board[0][1] == 'x' &&
+            this.board[0][1] == 'o' &&
+            this.board[0][2] == 'x' &&
+            this.board[0][2] == 'o' &&
+            this.board[1][0] == 'x' &&
+            this.board[1][0] == 'o' &&
+            this.board[1][1] == 'x' &&
+            this.board[1][1] == 'o' &&
+            this.board[1][2] == 'x' &&
+            this.board[1][2] == 'o' &&
+            this.board[2][0] == 'x' &&
+            this.board[2][0] == 'o' &&
+            this.board[2][1] == 'x' &&
+            this.board[2][1] == 'o' &&
+            this.board[2][2] == 'x' &&
+            this.board[2][2] == 'o') {
+            alert('draw');
+        }
 
 
         // for (let i = 0; i < this.board.length; i++) {
         //     for (let j = 0; j < this.board.length; j++) {
-        //         if (this.board[i][j] == null) {
-        //             console.log(this.board[i][j]);
-        //         }
-        //         else {
-        //             // alert('draw');
-        //         }
+        // console.log(this.board[i][j]);
+        // if (this.board[i][j] == null) {
+
+        // }
+        // else {
+        //     console.log(this.board[i][j]);
+        //     alert('draw');
+        // }
         //     }
 
         // }
     }
     resetGame() {
-        this.board[0][0] = '' ;
-        this.board[0][1] = '' ;
-        this.board[0][2] = '' ; 
-        this.board[1][0] = '' ;
-        this.board[1][1] = '' ;
-        this.board[1][2] = '' ;
-        this.board[2][0] = '' ;
-        this.board[2][1] = '' ;
-        this.board[2][2] = '' ;
+        this.board[0][0] = '';
+        this.board[0][1] = '';
+        this.board[0][2] = '';
+        this.board[1][0] = '';
+        this.board[1][1] = '';
+        this.board[1][2] = '';
+        this.board[2][0] = '';
+        this.board[2][1] = '';
+        this.board[2][2] = '';
 
         document.getElementById('row1col1').className = '';
         document.getElementById('row1col2').className = '';
@@ -226,36 +230,14 @@ class Game {
         document.getElementById('row3col1').className = '';
         document.getElementById('row3col2').className = '';
         document.getElementById('row3col3').className = '';
-        document.getElementById('resultsOfGame').innerHTML = 'XOXO'
+        
         console.log(this.board)
     }
 
 
 }
 
-
-//Need to switch off on players with clicks
-// function playerClick(event) {
-//         let currentTarget = event.target;
-//         //let variable initialize the player works like an on off switch
-//         if (newGame.playersTurn == 'player2'){
-//             currentTarget.className = 'playerO';
-//             console.log('O click');
-//             console.log(newGame.playersTurn);
-//             newGame.playersTurn = 'player1';
-//         }
-//         else {
-//             currentTarget.className = 'playerX';
-//             console.log('X click');
-//             console.log(newGame.playersTurn);
-//             newGame.playersTurn = 'player2';
-//         }
-
-//     }
-
 let newGame = new Game()
-
-// newGame.submission()
 
 submitPlayersButton.addEventListener('click', function (event) {
     newGame.playerInput()
@@ -273,8 +255,6 @@ gameBoard.addEventListener('click', function (event) {
     newGame.checkDiagnal();
     newGame.checkDraw();
 });
-// gameBoard.addEventListener('click', newGame.playerClick);
 
-//Create a button that will reset the game
 
 
