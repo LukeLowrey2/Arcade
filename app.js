@@ -218,6 +218,15 @@ class Game {
         this.board[2][2] = '' ;
 
         document.getElementById('row1col1').className = '';
+        document.getElementById('row1col2').className = '';
+        document.getElementById('row1col3').className = '';
+        document.getElementById('row2col1').className = '';
+        document.getElementById('row2col2').className = '';
+        document.getElementById('row2col3').className = '';
+        document.getElementById('row3col1').className = '';
+        document.getElementById('row3col2').className = '';
+        document.getElementById('row3col3').className = '';
+        document.getElementById('resultsOfGame').innerHTML = 'XOXO'
         console.log(this.board)
     }
 
