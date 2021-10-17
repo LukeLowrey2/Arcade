@@ -1,12 +1,4 @@
 
-
-//Set occupied squares as  squares you cant click
-//no change
-//maybe alert try again
-
-
-//This ID is equal to postions in array
-
 let squareID = {
     row1col1: [0, 0],
     row1col2: [0, 1],
@@ -56,15 +48,6 @@ class Game {
     submission(idName, className) {
 
         this.board[squareID[idName][0]][squareID[idName][1]] = className;
-        // this.board[0][1] = ;
-        // this.board[0][2] = ;
-        // this.board[1][0] = ;
-        // this.board[1][1] = ;
-        // this.board[1][2] = ;
-        // this.board[2][0] = ;
-        // this.board[2][1] = ;
-        // this.board[2][2] = ;
-
         console.log(this.board)
     }
     playerClick(event) {
@@ -124,7 +107,6 @@ class Game {
     }
 
     checkColumns() {
-        //If one of columns is filled with x's or o's display 'X or O Wins'
         if (this.board[0][0] == 'o' && this.board[1][0] == 'o' && this.board[2][0] == 'o') {
             document.getElementById('resultsOfGame').innerHTML = "O Wins!";
             document.getElementById('gameBoard').className = 'noClick';
@@ -152,7 +134,6 @@ class Game {
     }
 
     checkDiagnal() {
-        // //If diaginal is achieved display 'X or O Wins'
         if (this.board[0][0] == 'o' && this.board[1][1] == 'o' && this.board[2][2] == 'o') {
             document.getElementById('resultsOfGame').innerHTML = "O Wins!";
             document.getElementById('gameBoard').className = 'noClick';
@@ -171,23 +152,6 @@ class Game {
         }
     }
     checkDraw() {
-        //If the board is filled display 'Draw'
-        //maybe a loop
-        //look at every space in my board's array 
-        //if there is an element array that is null then there's no draw
-        //but if there is not an empty space the game is a draw
-        // if (this.board[0][0] === 'x' || this.board[0][0] === 'o' &&
-        //     this.board[0][1] === 'x' || this.board[0][1] === 'o' &&
-        //     this.board[0][2] === 'x' || this.board[0][2] === 'o' &&
-        //     this.board[1][0] === 'x' || this.board[1][0] === 'o' &&
-        //     this.board[1][1] === 'x' || this.board[1][1] === 'o' &&
-        //     this.board[1][2] === 'x' || this.board[1][2] === 'o' &&
-        //     this.board[2][0] === 'x' || this.board[2][0] === 'o' &&
-        //     this.board[2][1] === 'x' || this.board[2][1] === 'o' &&
-        //     this.board[2][2] === 'x' || this.board[2][2] === 'o') {
-        //     alert('draw');
-        //     alert(this.board[0][0])
-        // }
         if (this.board[0][0] == null ||
             this.board[0][1] == null ||
             this.board[0][2] == null ||
@@ -200,25 +164,10 @@ class Game {
             console.log('null check')
 
         }
-        else{
-            alert('draw');
-            
+        else {
+            document.getElementById('resultsOfGame').innerHTML = 'Draw';
         }
 
-
-        // for (let i = 0; i < this.board.length; i++) {
-        //     for (let j = 0; j < this.board.length; j++) {
-        // console.log(this.board[i][j]);
-        // if (this.board[i][j] == null) {
-
-        // }
-        // else {
-        //     console.log(this.board[i][j]);
-        //     alert('draw');
-        // }
-        //     }
-
-        // }
     }
     resetGame() {
         this.board[0][0] = '';
@@ -240,7 +189,7 @@ class Game {
         document.getElementById('row3col1').className = '';
         document.getElementById('row3col2').className = '';
         document.getElementById('row3col3').className = '';
-        
+
         console.log(this.board)
     }
 
