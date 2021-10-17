@@ -49,6 +49,8 @@ class Game {
         console.log(newPlayersArray);
         document.getElementById('playerX').innerHTML = 'X: ' + playersArray[0];
         document.getElementById('playerO').innerHTML = 'O: ' + playersArray[1];
+        document.getElementById('playerOneInput').value = ''
+        document.getElementById('playerTwoInput').innerHTML = ''
 
     }
     submission(idName, className) {
@@ -174,25 +176,33 @@ class Game {
         //look at every space in my board's array 
         //if there is an element array that is null then there's no draw
         //but if there is not an empty space the game is a draw
-        if (this.board[0][0] == 'x' &&
-            this.board[0][0] == 'o' &&
-            this.board[0][1] == 'x' &&
-            this.board[0][1] == 'o' &&
-            this.board[0][2] == 'x' &&
-            this.board[0][2] == 'o' &&
-            this.board[1][0] == 'x' &&
-            this.board[1][0] == 'o' &&
-            this.board[1][1] == 'x' &&
-            this.board[1][1] == 'o' &&
-            this.board[1][2] == 'x' &&
-            this.board[1][2] == 'o' &&
-            this.board[2][0] == 'x' &&
-            this.board[2][0] == 'o' &&
-            this.board[2][1] == 'x' &&
-            this.board[2][1] == 'o' &&
-            this.board[2][2] == 'x' &&
-            this.board[2][2] == 'o') {
+        // if (this.board[0][0] === 'x' || this.board[0][0] === 'o' &&
+        //     this.board[0][1] === 'x' || this.board[0][1] === 'o' &&
+        //     this.board[0][2] === 'x' || this.board[0][2] === 'o' &&
+        //     this.board[1][0] === 'x' || this.board[1][0] === 'o' &&
+        //     this.board[1][1] === 'x' || this.board[1][1] === 'o' &&
+        //     this.board[1][2] === 'x' || this.board[1][2] === 'o' &&
+        //     this.board[2][0] === 'x' || this.board[2][0] === 'o' &&
+        //     this.board[2][1] === 'x' || this.board[2][1] === 'o' &&
+        //     this.board[2][2] === 'x' || this.board[2][2] === 'o') {
+        //     alert('draw');
+        //     alert(this.board[0][0])
+        // }
+        if (this.board[0][0] == null ||
+            this.board[0][1] == null ||
+            this.board[0][2] == null ||
+            this.board[1][0] == null ||
+            this.board[1][1] == null ||
+            this.board[1][2] == null ||
+            this.board[2][0] == null ||
+            this.board[2][1] == null ||
+            this.board[2][2] == null) {
+            console.log('null check')
+
+        }
+        else{
             alert('draw');
+            
         }
 
 
@@ -253,7 +263,6 @@ gameBoard.addEventListener('click', function (event) {
     newGame.checkRows();
     newGame.checkColumns();
     newGame.checkDiagnal();
-    newGame.checkDraw();
 });
 
 
