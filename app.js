@@ -20,7 +20,7 @@ class Game {
             [null, null, null],
             [null, null, null]
         ]
-        this.playersTurn = 'player1'
+        this.playersTurn = 'player1';
     }
     playerInput() {
         let playerA = document.getElementById('playerOneInput').value;
@@ -170,15 +170,15 @@ class Game {
 
     }
     resetGame() {
-        this.board[0][0] = '';
-        this.board[0][1] = '';
-        this.board[0][2] = '';
-        this.board[1][0] = '';
-        this.board[1][1] = '';
-        this.board[1][2] = '';
-        this.board[2][0] = '';
-        this.board[2][1] = '';
-        this.board[2][2] = '';
+        this.board[0][0] = null;
+        this.board[0][1] = null;
+        this.board[0][2] = null;
+        this.board[1][0] = null;
+        this.board[1][1] = null;
+        this.board[1][2] = null;
+        this.board[2][0] = null;
+        this.board[2][1] = null;
+        this.board[2][2] = null;
 
         document.getElementById('row1col1').className = '';
         document.getElementById('row1col2').className = '';
@@ -189,6 +189,10 @@ class Game {
         document.getElementById('row3col1').className = '';
         document.getElementById('row3col2').className = '';
         document.getElementById('row3col3').className = '';
+
+        document.getElementById('resultsOfGame').innerHTML = '';
+        document.getElementById('gameBoard').className = '';
+        this.playersTurn = 'player1'
 
         console.log(this.board)
     }
